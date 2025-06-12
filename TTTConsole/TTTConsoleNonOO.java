@@ -32,7 +32,6 @@ public class TTTConsoleNonOO {
     /** The entry main method (the program starts here) */
     public static void main(String[] args) {
         do {
-            // Initialize the board, currentState and currentPlayer
             initGame();
 
             // Play one game
@@ -45,11 +44,11 @@ public class TTTConsoleNonOO {
 
                 // Check if game over
                 if (currentState == CROSS_WON) {
-                    System.out.println("'X' won!");
+                    System.out.println("'X' won!, GG!");
                 } else if (currentState == NOUGHT_WON) {
-                    System.out.println("'O' won!");
+                    System.out.println("'O' won! GG!");
                 } else if (currentState == DRAW) {
-                    System.out.println("It's a Draw!");
+                    System.out.println("It's a Draw! very intense!");
                 }
 
                 // Switch currentPlayer
@@ -58,10 +57,10 @@ public class TTTConsoleNonOO {
             } while (currentState == PLAYING); // repeat if not game over
 
             // Prompt the user whether to play again
-            System.out.print("Play again (y/n)? ");
+            System.out.print("Do you want to Play again click (y/n)? ");
             char ans = in.next().charAt(0);
             if (ans != 'y' && ans != 'Y') {
-                System.out.println("Bye!");
+                System.out.println("Thank you for playing, Bye!");
                 System.exit(0);  // terminate the program
             }
 
@@ -169,16 +168,4 @@ public class TTTConsoleNonOO {
             case NO_SEED: System.out.print("   "); break;
         }
     }
-}
-
-/**
- * This enum is used by:
- * 1. Player: takes value of CROSS or NOUGHT
- * 2. Cell content: takes value of CROSS, NOUGHT, or NO_SEED.
- *
- * Ideally, we should define two enums with inheritance, which is,
- *  however, not supported.
- */
-public enum Seed {   // to save as "Seed.java"
-    CROSS, NOUGHT, NO_SEED
 }
